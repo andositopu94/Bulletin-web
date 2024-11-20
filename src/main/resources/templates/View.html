@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Post</title>
+</head>
+<body>
+<h1 th:text="${post.title}"></h1>
+<p>Author: <span th:text="${post.author}"></span></p>
+<p>Views: <span th:text="${post.views}"></span></p>
+<p>Created At: <span th:text="${post.createdAt}"></span></p>
+<p th:text="${post.content}"></p>
+<a th:href="@{/posts/{id}/edit(id=${post.id})}">Edit</a>
+<form th:action="@{/posts/{id}/delete(id=${post.id})}" method="post">
+  <input type="password" name="password" placeholder="Enter password to delete">
+  <button type="submit">Delete</button>
+</form>
+<a href="/posts">Kembali</a>
+</body>
+</html>
